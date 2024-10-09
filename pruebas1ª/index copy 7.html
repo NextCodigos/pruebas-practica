@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    window.onload = inicio;
+
+    function inicio() {
+        // Utilizar insertAdjacentHTML para agregar cada elemento individualmente
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<h1>Hola 2</h1>`);
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<h2>Hola 3</h2>`);
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<h2>Hola 4</h2>`);
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<button class="boton">Mostrar/Ocultar Hola 5</button>`);
+
+        // Al pulsar el botón, se llama a la función saludar
+        document.querySelector(".boton").addEventListener("click", saludar);
+
+        // Variable para rastrear si "Hola 5" se muestra o no
+        let mostrarHola5 = false;
+
+        function saludar() {
+            // Alternar el valor de mostrarHola5 usando "!"
+            mostrarHola5 = !mostrarHola5;
+
+            // Si mostrarHola5 es true, insertar "Hola 5" usando insertAdjacentHTML
+            if (mostrarHola5) {
+                document.querySelector("body").insertAdjacentHTML("beforeend", `<h2 id="hola5">Hola 5</h2>`);
+            } else {
+                // Si es false, eliminar el elemento con id "hola5"
+                const hola5Element = document.getElementById("hola5");
+                if (hola5Element) {
+                    hola5Element.remove();
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

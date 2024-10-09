@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    window.onload = inicio
+    
+    function inicio() {
+        document.querySelector("body").innerHTML = `<h1>Hola 2</h1>`;
+        document.querySelector("body").innerHTML += `<h2>Hola 3</h2>`;
+        document.querySelector("body").innerHTML += `<h2>Hola 4</h2>`;
+        document.querySelector("body").innerHTML += `<button class="boton">Hola 4</button>`;
+        // Al pulsar boton llamar a funcion saludar
+        document.querySelector(".boton").addEventListener("click",saludar);
+
+        function saludar() {
+            // Al pulsar ver mensage Hola 5 y al volver a pulsar que no se vea con !
+            if (true) {
+                document.querySelector("body").innerHTML = document.querySelector("body").innerHTML.replace("Hola 5","");
+            } else {
+                document.querySelector("body").innerHTML += `<h2>Hola 5</h2>`;
+            }
+
+            document.querySelector("body").innerHTML += `<h2>Hola 5</h2>`;
+        }
+        
+
+    }
+        
+</script>
+</body>
+</html>

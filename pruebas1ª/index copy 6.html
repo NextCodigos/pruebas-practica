@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    window.onload = inicio;
+
+    function inicio() {
+        document.querySelector("body").innerHTML = `<h1>Hola 2</h1>`;
+        document.querySelector("body").innerHTML += `<h2>Hola 3</h2>`;
+        document.querySelector("body").innerHTML += `<h2>Hola 4</h2>`;
+        document.querySelector("body").innerHTML += `<button class="boton">Mostrar/Ocultar Hola 5</button>`;
+
+        // Crear el mensaje "Hola 5" con estilo de visibilidad oculto por defecto
+        document.querySelector("body").innerHTML += `<h2 id="hola5" style="visibility:hidden;">Hola 5</h2>`;
+
+        // Al pulsar el botón, se llama a la función saludar
+        document.querySelector(".boton").addEventListener("click", saludar);
+
+        // Variable para rastrear el estado de visibilidad usando "!"
+        let mostrarHola5 = false;
+
+        function saludar() {
+            // Alternar el valor de mostrarHola5 usando "!"
+            mostrarHola5 = !mostrarHola5;
+
+            // Actualizar la visibilidad del elemento "Hola 5" según el valor de mostrarHola5
+            document.getElementById("hola5").style.visibility = mostrarHola5 ? "visible" : "hidden";
+        }
+    }
+</script>
+</body>
+</html>

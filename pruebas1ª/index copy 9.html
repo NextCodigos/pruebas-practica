@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    window.onload = inicio;
+
+    function inicio() {
+        // Utilizar insertAdjacentHTML para agregar cada elemento individualmente
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<h1>Hola 2</h1>`);
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<button class="botonaumentar">Añadir 1</button>`);
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<button class="botonaumentar2">Añadir 2</button>`);
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<button class="boton">Mostrar/Ocultar Hola 5</button>`);
+
+        // Al pulsar el botón, se llama a la función saludar
+        document.querySelector(".boton").addEventListener("click", saludar);
+
+        // Variable para rastrear si "Hola 5" se muestra o no
+        let mostrarHola5 = false;
+
+        function saludar() {
+            // Alternar el valor de mostrarHola5 usando "!"
+            mostrarHola5 = !mostrarHola5;
+
+            // Utilizar un operador ternario para mostrar u ocultar "Hola 5"
+            mostrarHola5
+                ? document.querySelector("body").insertAdjacentHTML("beforeend", `<h2 id="hola5">Hola 5</h2>`)
+                : document.getElementById("hola5")?.remove();
+        }
+    }
+</script>
+</body>
+</html>
+
+
+
+<!-- ERROOOR -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    window.onload = inicio;
+
+    function inicio() {
+        // Utilizar insertAdjacentHTML para agregar cada elemento individualmente
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<h1>Hola 2</h1>`);
+        // document.querySelector("body").insertAdjacentHTML("beforeend", `<h2>Hola 3</h2>`);
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<button class="botonaumentar">Añadir 1</button>`);
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<button class="botonaumentar2">Añadir 2</button>`);
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<button class="boton">Mostrar/Ocultar Hola 5</button>`);
+
+        // Al pulsar el botón, se llama a la función saludar
+        document.querySelector(".boton").addEventListener("click", saludar);
+        document.querySelector(".boton1").addEventListener("click", saludar1);
+        document.querySelector(".boton2").addEventListener("click", saludar1);
+
+        // Variable para rastrear si "Hola 5" se muestra o no
+        let mostrarHola5 = false;
+
+        function saludar() {
+            // Alternar el valor de mostrarHola5 usando "!"
+            mostrarHola5 = !mostrarHola5;
+
+            // Utilizar un operador ternario para mostrar u ocultar "Hola 5"
+            mostrarHola5
+                ? document.querySelector("body").insertAdjacentHTML("beforeend", `<h2 id="hola5">Hola 5</h2>`)
+                : document.getElementById("hola5")?.remove();
+        }
+        function saludar2() {
+            // Alternar el valor de mostrarHola5 usando "!"
+            mostrarHola5 = !mostrarHola5;
+
+            // Utilizar un operador ternario para mostrar u ocultar "Hola 5"
+            mostrarHola5
+                ? document.querySelector("body").insertAdjacentHTML("beforeend", `<h2 id="hola5">Hola 5</h2>`)
+                : document.getElementById("hola5")?.remove();
+        }
+    }
+</script>
+</body>
+</html> -->

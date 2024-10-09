@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    window.onload = inicio;
+
+    function inicio() {
+        // Agregar elementos al body
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<h1>Hola 2</h1>`);
+        const contadorDiv = document.createElement('div');
+        contadorDiv.id = "contador";
+        contadorDiv.style.fontSize = "24px";
+        contadorDiv.style.margin = "10px 0";
+        contadorDiv.textContent = "Contador: 1";
+        document.querySelector("body").appendChild(contadorDiv);
+        
+        // Inicializar el contador
+        let contador = 1; 
+
+        // Botones
+        const botonAñadir1 = document.createElement('button');
+        botonAñadir1.classList.add('botonaumentar');
+        botonAñadir1.textContent = `Añadir 1 (Contador: ${contador})`;
+        
+        const botonAñadir2 = document.createElement('button');
+        botonAñadir2.classList.add('botonaumentar2');
+        botonAñadir2.textContent = `Añadir 2 (Contador: ${contador})`;
+        
+        const botonMostrarOcultar = document.createElement('button');
+        botonMostrarOcultar.classList.add('boton');
+        botonMostrarOcultar.textContent = `Mostrar/Ocultar Contador`;
+
+        // Agregar botones al body
+        document.querySelector("body").appendChild(botonAñadir1);
+        document.querySelector("body").appendChild(botonAñadir2);
+        document.querySelector("body").appendChild(botonMostrarOcultar);
+
+        // Agregar eventos a los botones
+        botonAñadir1.addEventListener("click", () => aumentarContador(1, botonAñadir1));
+        botonAñadir2.addEventListener("click", () => aumentarContador(2, botonAñadir2));
+        botonMostrarOcultar.addEventListener("click", () => {
+            // Alternar la visibilidad del contador
+            contadorDiv.style.display = contadorDiv.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Función para aumentar el contador y actualizar los botones
+        function aumentarContador(valor, selectorBoton) {
+            contador += valor; // Incrementar el contador con el valor proporcionado
+            contadorDiv.textContent = `Contador: ${contador}`; // Actualizar el texto de la caja del contador
+
+            // Actualizar el texto del botón que fue presionado
+            selectorBoton.textContent = `Añadir ${valor} (Contador: ${contador})`;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    window.onload = inicio;
+
+    function inicio() {
+        // Inicializar el contador
+        let contador = 1; 
+
+        // Crear elementos HTML iniciales
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<h1>Hola 2</h1>`);
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<div id="contador" style="font-size: 24px; margin: 10px 0;">Contador: ${contador}</div>`);
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<h2 id="hola5" style="display: none;">Hola 5</h2>`); // Inicialmente oculto
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<button class="botonMostrarOcultar">Mostrar/Ocultar Contador y Hola 5</button>`);
+        document.querySelector("body").insertAdjacentHTML("beforeend", `<button class="botonToggle">Mostrar/Ocultar Botones de Añadir</button>`); // Botón para mostrar/ocultar añadir
+
+        // Array de botones con sus incrementos y decrementos
+        const botones = [
+            { texto: "Añadir 1", incremento: 1, selector: ".botonaumentar" },
+            { texto: "Añadir 2", incremento: 2, selector: ".botonaumentar2" },
+            { texto: "Disminuir 1", incremento: -1, selector: ".botonDisminuir" } // Botón de disminuir
+        ];
+
+        // Crear botones usando insertAdjacentHTML
+        botones.forEach(boton => {
+            document.querySelector("body").insertAdjacentHTML("beforeend", `<button class="${boton.selector.substring(1)}">${boton.texto} (Contador: ${contador})</button>`);
+        });
+
+        // Agregar eventos a los botones de añadir y disminuir
+        botones.forEach(boton => {
+            document.querySelector(boton.selector).addEventListener("click", () => aumentarContador(boton.incremento, boton.selector));
+        });
+
+        // Agregar evento al botón de mostrar/ocultar
+        document.querySelector(".botonMostrarOcultar").addEventListener("click", () => {
+            // Alternar la visibilidad del contador y de "Hola 5"
+            const contadorDiv = document.getElementById("contador");
+            const hola5Div = document.getElementById("hola5");
+            contadorDiv.style.display = contadorDiv.style.display === 'none' ? 'block' : 'none';
+            hola5Div.style.display = hola5Div.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Agregar evento al botón de ocultar/mostrar botones de añadir
+        document.querySelector(".botonToggle").addEventListener("click", () => {
+            // Alternar la visibilidad de los botones de añadir
+            botones.forEach(boton => {
+                const botonElement = document.querySelector(boton.selector);
+                botonElement.style.display = botonElement.style.display === 'none' ? 'inline-block' : 'none';
+            });
+        });
+
+        // Función para aumentar o disminuir el contador y actualizar los botones
+        function aumentarContador(valor, selectorBoton) {
+            contador += valor; // Incrementar o disminuir el contador con el valor proporcionado
+            document.getElementById("contador").textContent = `Contador: ${contador}`; // Actualizar el texto de la caja del contador
+
+            // Actualizar el texto del botón que fue presionado
+            const boton = document.querySelector(selectorBoton);
+            boton.textContent = `${boton.textContent.split(' (')[0]} (Contador: ${contador})`; // Actualizar solo el texto del contador
+        }
+    }
+</script>
+</body>
+</html>
