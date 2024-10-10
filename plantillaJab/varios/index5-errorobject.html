@@ -1,0 +1,48 @@
+<!-- Definimos el tipo de documento y el idioma -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Configuramos la codificación de caracteres y el viewport -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Establecemos el título de la página -->
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Creamos un div con una clase "caja" y estilos CSS -->
+    <div
+      class="caja"
+      style="border: 1px solid #ccc; padding: 20px; margin: 20px"
+    ></div>
+
+    <!-- Inicializamos el script cuando la página carga -->
+    <script>
+      window.onload = inicio;
+
+      // Función que se ejecuta cuando la página carga
+      function inicio() {
+        // Aplicamos la función multiplyNumberByTwo a cada elemento del arreglo newArray
+        // y pasamos el resultado a la función escribir
+        escribir(newObject);
+      }
+
+    const newTitle = 'Hola super title';
+    
+
+    const newObject = {
+      title: newTitle,
+      name: 'name',
+    };
+     
+      // Función que escribe los valores en el div con clase "caja"
+      function escribir(valores) {
+        // Obtenemos el div con clase "caja"
+        const caja = document.querySelector(".caja");
+        // Recorremos el arreglo de valores y los escribimos en el div
+        
+          caja.insertAdjacentHTML("beforeend", `<div>${valores}</div>`);
+        ;
+      }
+    </script>
+  </body>
+</html>

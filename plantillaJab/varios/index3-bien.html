@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      class="caja"
+      style="border: 1px solid #ccc; padding: 20px; margin: 20px"
+    ></div>
+
+    <script>
+      window.onload = inicio;
+
+      function inicio() {
+        escribir(newArray.map((item) => item * 2));
+        escribir(newArray2);
+      }
+      const newArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      const newArray2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      for (let i = 0; i < newArray2.length; i++) {
+        newArray2[i] = newArray2[i] * 2;
+      }
+
+      // function escribir(valor) {
+      //     document.querySelector(".caja").innerHTML += `<div>${valor}</div>`;
+      // }
+      function escribir(valores) {
+        const caja = document.querySelector(".caja");
+        valores.forEach((valor) => {
+          caja.insertAdjacentHTML("beforeend", `<div>${valor}</div>`);
+        });
+      }
+
+      //       Parece que estás intentando escribir el resultado de dos arreglos (newArray y newArray2) en la caja, pero estás pasando el arreglo completo a la función escribir en lugar de un valor individual.
+
+      // Debido a que estás utilizando map en newArray, el resultado es un arreglo de valores, pero en newArray2 estás modificando el arreglo original y luego no estás haciendo nada con él.
+
+      // Para solucionar esto, puedes modificar la función escribir para que acepte un arreglo de valores y los escriba individualmente en la caja.
+    </script>
+  </body>
+</html>

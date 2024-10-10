@@ -1,0 +1,38 @@
+<!-- Definimos el tipo de documento y el idioma -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Configuramos la codificación de caracteres y el viewport -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Establecemos el título de la página -->
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Creamos un div con una clase "caja" y estilos CSS -->
+    <div
+      class="caja"
+      style="border: 1px solid #ccc; padding: 20px; margin: 20px"
+    ></div>
+
+    <!-- Inicializamos el script cuando la página carga -->
+    <script>
+      window.onload = inicio;
+      const newVar= true;
+      // Función que se ejecuta cuando la página carga
+      function inicio() {
+        newVar && escribir({ mensaje: 'Se esta ejecutando es true tiene valor la variable newVar' });
+      }
+
+
+      // Función que escribe los valores en el div con clase "caja"
+      // debes convertir el objeto en una cadena de texto que puedas insertar en el HTML. Una forma de hacer esto es utilizando la función JSON.stringify() para convertir el objeto en una cadena de texto JSON.
+function escribir(valores) {
+  const caja = document.querySelector(".caja");
+  caja.insertAdjacentHTML("beforeend", `<div>${JSON.stringify(valores)}</div>`);
+}
+
+
+    </script>
+  </body>
+</html>
