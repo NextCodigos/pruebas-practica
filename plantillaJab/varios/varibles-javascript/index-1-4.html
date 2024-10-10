@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usando insertAdjacentHTML</title>
+    <style>
+      .caja {
+        padding: 1em;
+        background-color: #f4f4f4;
+        border: 1px solid #ccc;
+        margin: 1em 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="caja"></div>
+
+    <script>
+      function escribir(valor) {
+        // Inserta el contenido HTML justo antes del final de la caja
+        document.querySelector('.caja').insertAdjacentHTML('beforeend', `<div>${valor}</div>`);
+      }
+
+      // Ejemplo de uso
+      let nombre = "Jab";
+      let edad = 25;
+      let vivo = true;
+
+      // Mostrar valores con la función escribir
+      escribir(`Nombre: ${nombre}`);
+      escribir(`Edad: ${edad}`);
+      escribir(`¿Vivo?: ${vivo}`);
+    </script>
+  </body>
+</html>
