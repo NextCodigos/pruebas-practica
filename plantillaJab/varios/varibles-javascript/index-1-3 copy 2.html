@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables en zonas</title>
+    <style>
+      /* Estilos generales */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Navbar */
+      nav {
+        background-color: #333;
+        padding: 1em;
+        text-align: center;
+        color: white;
+      }
+
+      nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+      }
+
+      /* Header */
+      header {
+        background-color: #f4f4f4;
+        padding: 2em;
+        text-align: center;
+      }
+
+      /* Aside */
+      aside {
+        background-color: #f0f0f0;
+        padding: 1em;
+        float: left;
+        width: 25%;
+        box-sizing: border-box;
+      }
+
+      /* Contenido principal */
+      main {
+        margin-left: 25%;
+        padding: 1em;
+        background-color: #fafafa;
+        box-sizing: border-box;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 1em;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Acerca de</a>
+      <a href="#">Contacto</a>
+      <div id="navbar"></div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <h1>Valores de variables en el header</h1>
+      <div id="header"></div>
+    </header>
+
+    <!-- Aside -->
+    <aside>
+      <h2>Valores en el aside</h2>
+      <div id="aside"></div>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main>
+      <h2>Valores en la zona de contenido</h2>
+      <div id="main-content"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>Footer con tipos de variables</p>
+      <div id="footer"></div>
+    </footer>
+
+    <script>
+      // Variables de diferentes tipos
+      let indefinido = undefined;
+      let nulo = null;
+      let numero = 42;
+      let cadena = "Hola mundo";
+      let booleano = true;
+      let objeto = { nombre: "Juan", edad: 30 };
+      let arreglo = [1, 2, 3, 4, 5];
+
+      // Función para mostrar valores en distintas zonas
+      function escribirEnZona(zona, valor) {
+        document.getElementById(zona).innerHTML += `<div>${valor}</div>`;
+      }
+
+      // Navbar: Mostrar cadenas
+      escribirEnZona("navbar", `Cadena: ${cadena}`);
+
+      // Header: Mostrar números
+      escribirEnZona("header", `Número: ${numero}`);
+
+      // Aside: Mostrar objetos y arreglos
+      escribirEnZona("aside", `Objeto: ${JSON.stringify(objeto)}`);
+      escribirEnZona("aside", `Arreglo: ${arreglo.join(", ")}`);
+
+      // Main: Mostrar indefinido y nulo
+      escribirEnZona("main-content", `Indefinido: ${indefinido}`);
+      escribirEnZona("main-content", `Nulo: ${nulo}`);
+
+      // Footer: Mostrar booleano
+      escribirEnZona("footer", `Booleano: ${booleano}`);
+    </script>
+  </body>
+</html>
